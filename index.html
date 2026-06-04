@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>god sent me here to rock you</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* =============================================
+       EASY CUSTOMIZATION — change any of these:
+
+       Page background:   find  background: #fff  in body {}
+       Main text color:   find  color: #111  in body {}
+       Font:              find  font-family: Arial  in body {}
+       Font size:         find  font-size: 14px  in body {}
+
+       Sidebar background: find  background: #fff  in #sidebar {}
+       Nav link color:     find  color: #888  in #sidebar nav a {}
+       Nav active color:   find  color: #111  in #sidebar nav a.active {}
+       Tagline color:      find  color: #999  in .sidebar-tagline {}
+
+       Post title color:   find  .post h2 {} and add  color: yourcolor;
+       Post text color:    find  color: #333  in .post p {}
+       Date color:         find  color: #bbb  in .post-date {}
+       Tag color:          find  color: #ccc  in .post-tags {}
+    ============================================= */
+
+    body {
+      background: #fff;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.75;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    a { color: #111; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── FIXED SIDEBAR ── */
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 100vh;
+      padding: 28px 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: #fff;
+      z-index: 10;
+    }
+
+    #sidebar img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .sidebar-tagline {
+      font-size: 12px;
+      color: #999;
+      line-height: 1.5;
+      margin-top: -6px;
+      white-space: nowrap;
+    }
+
+    #sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 4px;
+      padding-top: 0;
+    }
+
+    #sidebar nav a {
+      font-size: 14px;
+      color: #888;
+      cursor: pointer;
+    }
+
+    #sidebar nav a:hover { color: #111; text-decoration: none; }
+    #sidebar nav a.active { color: #111; }
+
+    /* ── MAIN CONTENT ── */
+    #main {
+      margin-left: 150px;
+      flex: 1;
+      padding: 56px 72px 100px;
+      max-width: 800px;
+    }
+
+    /* ── PAGE SECTIONS ── */
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+
+    /* ── POSTS ── */
+    .post {
+      margin-bottom: 52px;
+    }
+
+    .post-date {
+      font-size: 14px;
+      color: #bbb;
+      margin-bottom: 6px;
+    }
+
+    .post h2 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .post p {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 10px;
+      max-width: 540px;
+    }
+
+    .post img {
+      max-width: 100%;
+      display: block;
+      margin: 12px 0;
+    }
+
+    .post iframe {
+      width: 100%;
+      max-width: 540px;
+      aspect-ratio: 16/9;
+      border: none;
+      display: block;
+      margin: 12px 0;
+    }
+
+    .post-tags {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ccc;
+    }
+    .post-tags span { margin-right: 10px; }
+    .post-tags span::before { content: "#"; }
+
+    /* ── GALLERY ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── VIDEOS ── */
+    .video-entry {
+      margin-bottom: 48px;
+    }
+    .video-entry h3 { font-size: 14px; font-weight: bold; margin-bottom: 8px; }
+    .video-entry .post-date { font-size: 14px; color: #bbb; margin-bottom: 12px; }
+    .video-entry iframe { width: 100%; max-width: 560px; aspect-ratio: 16/9; border: none; display: block; }
+
+    /* ── EMPTY STATE ── */
+    .empty { font-size: 14px; color: #ccc; padding: 48px 0; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      body { flex-direction: column; }
+      #sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 16px;
+        gap: 16px;
+      }
+      #sidebar nav { flex-direction: row; gap: 12px; }
+      #main { margin-left: 0; padding: 28px 20px 64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside id="sidebar">
+    <img src="pic.jpeg" alt="photo" />
+    <p class="sidebar-tagline">a place for me to play</p>
+    <nav>
+      <a class="nav-link active" data-page="blog">blog</a>
+      <a class="nav-link" data-page="gallery">gallery</a>
+      <a class="nav-link" data-page="videos">videos</a>
+    </nav>
+  </aside>
+
+  <main id="main">
+
+    <!-- ══════════════════════════════
+         BLOG
+         HOW TO ADD A NEW POST:
+         1. Copy any <article class="post"> block
+         2. Paste it above the others (newest on top)
+         3. Update the date, title, and body text
+         4. Update data-tags:
+            - Add "pics" → photo appears in Gallery
+            - Add "vid"  → video appears in Videos
+    ══════════════════════════════ -->
+    <section id="page-blog" class="page-section active">
+
+      <article class="post" data-tags="intro life">
+        <p class="post-date">june 3, 2026</p>
+        <h2>first entry</h2>
+        <p>I've been meaning to start one of these again for a while. There's something about having your own little corner of the internet — quieter, more honest, less performed.</p>
+        <p>So here it is. My corner.</p>
+        <div class="post-tags"><span>intro</span><span>life</span></div>
+      </article>
+
+      <article class="post" data-tags="life pics">
+        <p class="post-date">may 22, 2026</p>
+        <h2>a post with a photo</h2>
+        <p>Tag any post with "pics" in data-tags and add an img tag — it will automatically show up in your Gallery too.</p>
+        <!-- Add your image like this: <img src="your-photo.jpg" alt="description" /> -->
+        <div class="post-tags"><span>life</span><span>pics</span></div>
+      </article>
+
+      <article class="post" data-tags="vid">
+        <p class="post-date">april 10, 2026</p>
+        <h2>a post with a video</h2>
+        <p>Tag a post with "vid" and paste a YouTube/Vimeo iframe — it will appear in your Videos page automatically.</p>
+        <!-- Paste your embed here, e.g.:
+        <iframe src="https://www.youtube.com/embed/YOUR_ID" allowfullscreen></iframe>
+        -->
+        <div class="post-tags"><span>vid</span></div>
+      </article>
+
+    </section>
+
+    <!-- GALLERY — auto-built from posts tagged "pics" -->
+    <section id="page-gallery" class="page-section">
+      <div class="gallery-grid" id="gallery-grid"></div>
+      <p class="empty" id="gallery-empty" style="display:none">no photos yet. tag a post with "pics" and add an img to have it show up here.</p>
+    </section>
+
+    <!-- VIDEOS — auto-built from posts tagged "vid" -->
+    <section id="page-videos" class="page-section">
+      <div id="videos-list"></div>
+      <p class="empty" id="videos-empty" style="display:none">no videos yet. tag a post with "vid" and add an iframe embed to have it show up here.</p>
+    </section>
+
+  </main>
+
+  <script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.page-section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const page = link.dataset.page;
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        sections.forEach(s => s.classList.remove('active'));
+        document.getElementById('page-' + page).classList.add('active');
+      });
+    });
+
+    function buildGallery() {
+      const posts = document.querySelectorAll('#page-blog .post');
+      const grid = document.getElementById('gallery-grid');
+      const empty = document.getElementById('gallery-empty');
+      let count = 0;
+      posts.forEach(post => {
+        if ((post.dataset.tags || '').split(' ').includes('pics')) {
+          post.querySelectorAll('img').forEach(img => {
+            grid.appendChild(img.cloneNode());
+            count++;
+          });
+        }
+      });
+      if (count === 0) empty.style.display = 'block';
+    }
+
+    function buildVideos() {
+      const posts = document.querySelectorAll('#page-blog .post');
+      const list = document.getElementById('videos-list');
+      const empty = document.getElementById('videos-empty');
+      let count = 0;
+      posts.forEach(post => {
+        if ((post.dataset.tags || '').split(' ').includes('vid')) {
+          const iframes = post.querySelectorAll('iframe');
+          if (iframes.length > 0) {
+            const entry = document.createElement('div');
+            entry.className = 'video-entry';
+            const h2 = post.querySelector('h2');
+            const date = post.querySelector('.post-date');
+            if (h2) entry.innerHTML += `<h3>${h2.textContent}</h3>`;
+            if (date) entry.innerHTML += `<p class="post-date">${date.textContent}</p>`;
+            iframes.forEach(f => entry.appendChild(f.cloneNode(true)));
+            list.appendChild(entry);
+            count++;
+          }
+        }
+      });
+      if (count === 0) empty.style.display = 'block';
+    }
+
+    buildGallery();
+    buildVideos();
+  </script>
+
+</body>
+</html>
