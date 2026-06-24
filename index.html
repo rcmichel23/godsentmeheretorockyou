@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+{% assign video_posts = site.posts | where_exp: "post", "post.tags contains 'vid'" %}
+
+{% if video_posts.size == 0 %}
+  <p class="empty">no videos yet. tag a post with "vid" and it'll show up here.</p>
+{% else %}
+  {% for post in video_posts %}
+  <article class="post">
+    <p class="post-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+    <h2>{{ post.title }}</h2>
+    <div class="post-body">
+      {{ post.content }}
+    </div>
+  </article>
+  {% endfor %}
+{% endif %}
