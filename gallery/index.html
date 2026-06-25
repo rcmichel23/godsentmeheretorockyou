@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+{% assign gallery_posts = site.posts | where_exp: "post", "post.tags contains 'pics'" %}
+
+{% if gallery_posts.size == 0 %}
+  <p class="empty">no photos yet. tag a post with "pics" and it'll show up here.</p>
+{% else %}
+  <div class="gallery-grid">
+    {% for post in gallery_posts %}
+      {{ post.content | scan: '<img[^>]*>' | join: '' }}
+    {% endfor %}
+  </div>
+{% endif %}
