@@ -1,0 +1,9 @@
+title: god sent me here to rock you
+description: a place for me to play
+baseurl: ""
+url: "https://godsentmeheretorockyou.com"
+
+plugins:
+  - jekyll-feed
+
+markdown: kramdown
