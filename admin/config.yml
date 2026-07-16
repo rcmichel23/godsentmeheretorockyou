@@ -2,8 +2,8 @@ backend:
   name: github
   repo: rcmichel23/godsentmeheretorockyou
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  base_url: https://godsentmeheretorockyou.pages.dev
+  auth_endpoint: /api/auth
 
 media_folder: "images"
 public_folder: "/images"
