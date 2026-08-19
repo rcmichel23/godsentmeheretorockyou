@@ -8,3 +8,5 @@ plugins:
 
 markdown: kramdown
 future: true
+include:
+  - images
