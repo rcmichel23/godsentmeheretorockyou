@@ -9,11 +9,11 @@ layout: default
 {% else %}
   <div class="gallery-grid">
     {% for post in gallery_posts %}
-      {% assign images = post.content | split: "![" %}
-      {% for image in images offset:1 %}
-        {% assign src = image | split: "](" | last | split: ")" | first %}
-        <img src="{{ src }}" />
-      {% endfor %}
+      {{ post.content | strip_html | remove: "\n" }}
+      {% assign content = post.content %}
+      {% if content contains '<img' %}
+        {{ content | scan: '<img[^>]*src="([^"]*)"' }}
+      {% endif %}
     {% endfor %}
   </div>
 {% endif %}
