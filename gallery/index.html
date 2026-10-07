@@ -9,11 +9,7 @@ layout: default
 {% else %}
   <div class="gallery-grid">
     {% for post in gallery_posts %}
-      {{ post.content | strip_html | remove: "\n" }}
-      {% assign content = post.content %}
-      {% if content contains '<img' %}
-        {{ content | scan: '<img[^>]*src="([^"]*)"' }}
-      {% endif %}
+      {{ post.content }}
     {% endfor %}
   </div>
 {% endif %}
