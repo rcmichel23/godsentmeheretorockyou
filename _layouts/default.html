@@ -50,29 +50,29 @@
       gap: 4px;
       margin-top: 4px;
     }
-    #sidebar nav a {
-      font-size: 14px;
-      color: #888;
-    }
+    #sidebar nav a { font-size: 14px; color: #888; }
     #sidebar nav a:hover { color: #111; text-decoration: none; }
     #sidebar nav a.active { color: #111; }
     #main {
       margin-left: 150px;
       flex: 1;
-      padding: 56px 150px 100px 72px;
-      max-width: 1000px;
+      padding: 56px 40px 100px;
     }
-    .post { margin-bottom: 52px; }
+    .post { margin-bottom: 52px; max-width: 540px; }
     .post-date { font-size: 14px; color: #bbb; margin-bottom: 6px; }
     .post h2 { font-size: 14px; font-weight: bold; margin-bottom: 10px; }
-    .post-body { font-size: 14px; color: #333; max-width: 540px; }
+    .post-body { font-size: 14px; color: #333; }
     .post-body p { margin-bottom: 10px; }
     .post-body img { max-width: 540px; width: 100%; display: block; margin: 12px 0; }
     .post-body iframe { width: 100%; max-width: 540px; aspect-ratio: 16/9; border: none; display: block; margin: 12px 0; }
     .post-tags { margin-top: 10px; font-size: 14px; color: #ccc; }
     .post-tags span { margin-right: 10px; }
     .post-tags span::before { content: "#"; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; width: 100%; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
     .gallery-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
     .empty { font-size: 14px; color: #ccc; padding: 48px 0; }
     @media (max-width: 640px) {
