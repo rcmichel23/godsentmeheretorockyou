@@ -2,7 +2,7 @@ backend:
   name: github
   repo: rcmichel23/godsentmeheretorockyou
   branch: main
-  base_url: https://godsentmeheretorockyou.pages.dev
+  base_url: https://godsentmeheretorockyou.com
   auth_endpoint: /api/auth
 
 media_folder: "images"
