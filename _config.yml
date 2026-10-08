@@ -8,3 +8,5 @@ markdown: kramdown
 future: true
 passthrough:
   - images
+kramdown:
+  input: GFM
