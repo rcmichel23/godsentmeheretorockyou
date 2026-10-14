@@ -5,6 +5,6 @@ tags:
   - pics
 image: ""
 ---
-we are licking our wounds at time again. time and time again
+we are licking our wounds at time again.
 
 ![](/images/image.jpg)
