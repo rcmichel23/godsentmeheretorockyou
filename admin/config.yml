@@ -5,6 +5,8 @@ backend:
   base_url: https://godsentmeheretorockyou.pages.dev
   auth_endpoint: /api/auth
 
+publish_mode: editorial_workflow
+
 media_folder: "images"
 public_folder: "/images"
 
