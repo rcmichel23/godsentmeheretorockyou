@@ -1,5 +1,5 @@
 ---
-title: Hinge for Animals
+title: hinge for animals
 date: 2026-11-06T11:56:00.000-05:00
 tags:
   - pics
