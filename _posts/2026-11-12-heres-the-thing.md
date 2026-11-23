@@ -1,6 +1,6 @@
 ---
 title: here's the thing
-date: 2026-11-12T13:10:00.000-05:00
+date: 2026-11-23T12:28:00.000-05:00
 tags:
   - pics
 ---
