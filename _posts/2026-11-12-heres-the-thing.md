@@ -28,7 +28,7 @@ Wednesday would have been uneventful, but I ended up going out for after work dr
 
 This is coworker Devan giving me a blood sugar finger prick test. Not to flex, but he said my blood sugar level was near perfect. 
 
-![](/images/screen-shot-2026-11-23-at-12.10.05-pm.png)
+![](/images/screen-shot-2026-11-23-at-12.27.52-pm.png)
 
 We had such a fun time that we may or may not have run it back the next night at Toad Hall. I've been going there semi-often lately because the only bar I can ever think of nearish to my work that isn't insane. Don't worry about it. Where do people go out in Greenwich Village/Soho that isn't completely fried I'm so serious I want to know.
 
