@@ -32,4 +32,12 @@ This is coworker Devan giving me a blood sugar finger prick test. Not to flex, b
 
 We had such a fun time that we may or may not have run it back the next night at Toad Hall. I've been going there semi-often lately because the only bar I can ever think of nearish to my work that isn't insane. Don't worry about it. Where do people go out in Greenwich Village/Soho that isn't completely fried I'm so serious I want to know.
 
-This entry has taken me far, far too long because my shitty website admin page doesn't work very well. Let's see if this works. I'll end the entry with a few photos from the rest of the weekend, which was now last weekend, because this took so long.
+This entry has taken me far, far too long because my shitty website admin page doesn't work very well. Let's see if this works. I'll end the entry with a few photos from the rest of the weekend, which was now last weekend, because this took so long. 
+
+![](/images/screen-shot-2026-11-23-at-12.14.10-pm.png "pretty isa")
+
+![](/images/screen-shot-2026-11-23-at-12.14.28-pm.png "hotpot aftermath")
+
+![](/images/screen-shot-2026-11-23-at-12.14.45-pm.png "me being beautiful on the bus")
+
+![](/images/screen-shot-2026-11-23-at-12.14.59-pm.png "lia being beautiful at the bar")
