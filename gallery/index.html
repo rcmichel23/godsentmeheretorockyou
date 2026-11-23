@@ -1,20 +1,71 @@
 ---
 layout: default
 ---
-
 {% assign gallery_posts = site.posts | where_exp: "post", "post.tags contains 'pics'" %}
-
 {% if gallery_posts.size == 0 %}
-  <p class="empty">no photos yet. tag a post with "pics" and it'll show up here.</p>
+  <p class="empty">no photos yet.</p>
 {% else %}
-  <div class="gallery-grid">
+  <div class="gallery-grid" id="gallery-grid">
     {% for post in gallery_posts %}
       {% assign content = post.content %}
       {% assign parts = content | split: 'src="' %}
       {% for part in parts offset:1 %}
         {% assign src = part | split: '"' | first %}
-        <img src="{{ src }}" />
+        <img src="{{ src }}" onclick="openLightbox(this)" />
       {% endfor %}
     {% endfor %}
   </div>
+
+  <div id="lightbox" onclick="closeLightbox()">
+    <button id="lb-prev" onclick="event.stopPropagation(); moveLight(-1)">&#8592;</button>
+    <img id="lb-img" src="" />
+    <button id="lb-next" onclick="event.stopPropagation(); moveLight(1)">&#8594;</button>
+  </div>
+
+  <style>
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+    #lb-img { max-height: 90vh; max-width: 90vw; object-fit: contain; }
+    #lb-prev, #lb-next {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0 24px;
+      user-select: none;
+    }
+  </style>
+
+  <script>
+    let imgs = [], cur = 0;
+    window.addEventListener('DOMContentLoaded', () => {
+      imgs = Array.from(document.querySelectorAll('#gallery-grid img'));
+    });
+    function openLightbox(el) {
+      cur = imgs.indexOf(el);
+      document.getElementById('lb-img').src = el.src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    function moveLight(dir) {
+      cur = (cur + dir + imgs.length) % imgs.length;
+      document.getElementById('lb-img').src = imgs[cur].src;
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') moveLight(-1);
+      if (e.key === 'ArrowRight') moveLight(1);
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
 {% endif %}
